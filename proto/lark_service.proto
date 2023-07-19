@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package lark;
+
+option go_package = "proto/go_proto";
+
+//  protoc --go_out=. --go-grpc_out=. proto/*.proto
+service LarkService {
+  // k8s -yaml的images tag更新通知（auto deploy 完成动作）
+  rpc AppImageTagUpdate(AppImageTagUpdateRequest) returns (AppImageTagUpdateResponse);
+  // 镜像同步完成通知
+  rpc ImagesSyncDone(ImagesSyncDoneRequest) returns (ImagesSyncDoneResponse);
+}
+
+message AppImageTagUpdateRequest {
+  // 更改的容器名称
+  string container_name = 1;
+  // git commit 内容
+  string commit_message = 2;
+  // 作者
+  string author = 3;
+  // 新的镜像
+  string image = 4;
+}
+
+message AppImageTagUpdateResponse {}
+
+message ImagesSyncDoneRequest {
+  // 镜像名称
+  string image = 1;
+}
+
+message ImagesSyncDoneResponse {}

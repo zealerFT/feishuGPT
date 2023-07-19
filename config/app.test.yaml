@@ -1,0 +1,22 @@
+app_name: feishugpt
+app_environment: test
+debug: true
+http_server_addr: ':8001'
+proxy_server_addr: ':10888'
+http_metrics_addr: ':23333'
+grpc_server_addr: ':50051'
+grpc_metrics_addr: ':2333'
+
+# openai
+openai_setting:
+  openai_addr: "https://api.openai.com/v1" # openai api地址，可以替换成自己代理的地址，可以参考项目根目录下的nginx.conf，部署到海外服务器
+  token: ""
+
+# 飞书相关配置，请参考 https://open.feishu.cn/app?lang=zh-CN
+lark_setting:
+  app_id: ""
+  app_secret: ""
+  encrypt_key: ""
+  verification_token: ""
+  argocd_chat_id: ""
+  argocd_base_url: ""
