@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-/bin/feishugpt
+/bin/lark
